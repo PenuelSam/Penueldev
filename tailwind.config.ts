@@ -8,6 +8,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        MetroSans: ["Metro Sans"],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",

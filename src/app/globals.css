@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
+  --background: #0E0E0E;
   --foreground: #171717;
 }
 
@@ -14,8 +14,144 @@
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@font-face {
+  font-family: 'Metro Sans';
+  src: local('Metro Sans Light'), local('MetroSans-Light'), 
+      url('../assets/font/MetroSans-Light.woff2') format('woff2'),
+      url('../assets/font/MetroSans-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
 }
+
+@font-face {
+  font-family: 'Metro Sans';  
+  src: local('Metro Sans Bold Italic'), local('MetroSans-BoldItalic'),      
+      url('../assets/font/MetroSans-BoldItalic.woff2') format('woff2'),
+      url('../assets/font/MetroSans-BoldItalic.woff') format('woff');     
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Metro Sans';  
+  src: local('Metro Sans Book Italic'), local('MetroSans-BookItalic'),     
+      url('../assets/font/MetroSans-BookItalic.woff2') format('woff2'),
+      url('../assets/font/MetroSans-BookItalic.woff') format('woff');     
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Metro Sans';  
+  src: local('Metro Sans Book'), local('MetroSans-Book'),      
+      url('../assets/font/MetroSans-Book.woff2') format('woff2'),
+      url('../assets/font/MetroSans-Book.woff') format('woff');      
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Metro Sans';
+  src: local('Metro Sans Regular'), local('MetroSans-Regular'),     
+      url('../assets/font/MetroSans-Regular.woff2') format('woff2'),
+      url('../assets/font/MetroSans-Regular.woff') format('woff');     
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Metro Sans';
+  src: local('Metro Sans Regular Italic'), local('MetroSans-RegularItalic'),      
+      url('../assets/font/MetroSans-RegularItalic.woff2') format('woff2'),
+      url('../assets/font/MetroSans-RegularItalic.woff') format('woff');     
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Metro Sans';  
+  src: local('Metro Sans Bold'), local('MetroSans-Bold'),    
+      url('../assets/font/MetroSans-Bold.woff2') format('woff2'),
+      url('../assets/font/MetroSans-Bold.woff') format('woff');     
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Metro Sans';
+  src: local('Metro Sans Semi Bold'), local('MetroSans-SemiBold'),
+      url('../assets/font/MetroSans-SemiBold.woff2') format('woff2'),
+      url('../assets/font/MetroSans-SemiBold.woff') format('woff');   
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Metro Sans';  
+  src: local('Metro Sans Semi Bold Italic'), local('MetroSans-SemiBoldItalic'),   
+      url('../assets/font/MetroSans-SemiBoldItalic.woff') format('woff2'),
+      url('../assets/font/MetroSans-SemiBoldItalic.woff') format('woff');   
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Metro Sans';  
+  src: local('Metro Sans Medium Italic'), local('MetroSans-MediumItalic'),      
+      url('../assets/font/MetroSans-MediumItalic.woff2') format('woff2'),
+      url('../assets/font/MetroSans-MediumItalic.woff') format('woff');     
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Metro Sans';
+  src: local('Metro Sans Light Italic'), local('MetroSans-LightItalic'),
+      url('../assets/font/MetroSans-LightItalic.woff2') format('woff2'),
+      url('../assets/font/MetroSans-LightItalic.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Metro Sans';
+  src: local('Metro Sans Medium'), local('MetroSans-Medium'),    
+      url('../assets/font/MetroSans-Medium.woff2') format('woff2'),
+      url('../assets/font/MetroSans-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+body{
+  @apply bg-[#0E0E0E] text-[#ededed] overflow-x-hidden
+}
+
+
+.bg-path{
+  width: 100%;
+  height: 100%;
+  background: url("../assets/Clippath.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.textgradient{
+  background: var(--Gradient-green, linear-gradient(93deg, #4877EE 0.79%, #A52170 100%));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  }
+
