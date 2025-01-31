@@ -1,73 +1,80 @@
-"use client"
-import React, { useEffect, useRef } from 'react'
+"use client";
+import React, { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
 
+const Loader = ({ onComplete }: { onComplete: () => void }) => {
+  const loadRef = useRef(null);
+  const progressRef = useRef(null);
+  const counterRef = useRef(null);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [loadingComplete, setLoadingComplete] = useState(false);
 
-import gsap from 'gsap'
+  useEffect(() => {
+    const counterElement = counterRef.current;
+    let currentValue = 0;
 
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+    const tl = gsap.timeline();
 
+    // Set Initial States for Progress Bar
+    gsap.set(progressRef.current, { width: "0%" });
 
+    function updateCounter() {
+      if (currentValue === 100) return;
 
+      // Random increment for a natural effect
+      currentValue += Math.floor(Math.random() * 10) + 1;
+      if (currentValue > 100) currentValue = 100;
 
-const Loader = () => {
+      // Update Counter Text
+      if (counterElement) {
+        (counterElement as HTMLElement).textContent = `${currentValue}%`;
+      }
 
-  
-    const lineRef = useRef(null)
-    const loadRef = useRef(null)
-    const counterRef = useRef(null)
-    gsap.registerPlugin(ScrollTrigger)
+      // Update Progress Bar Width
+      gsap.to(progressRef.current, {
+        width: `${currentValue}%`,
+        duration: 0.3, // Smooth transition
+        ease: "power2.inOut",
+      });
 
-    useEffect(() => {
-        const counterElement = counterRef.current;
-        let currentValue = 0;
+      // If counter has not reached 100, continue updating
+      if (currentValue < 100) {
+        const delay = Math.floor(Math.random() * 200) + 250;
+        setTimeout(updateCounter, delay);
+      } else {
+        // Once counter reaches 100%, trigger the loader animation
+        tl.to(loadRef.current, { height: "0vh", ease: "power4.in", duration: 1 })
+          .to(loadRef.current, { opacity: 0, ease: "power4.in", duration: 0.5 })
+          .call(() => {
+            setLoadingComplete(true);
+            onComplete(); // Notify the parent component (Banner) to start the animation
+          });
+      }
+    }
 
-        function updateCounter() {
-            if(currentValue === 100) {
-              return;
-            }
-    
-            currentValue += Math.floor(Math.random() * 10) + 1
-    
-            if(currentValue > 100) {
-              currentValue = 100
-            }
-    
-            if (counterElement) {
-                (counterElement as HTMLElement).textContent = currentValue + "%";
-            }
-    
-            const delay = Math.floor(Math.random() * 200) + 250;
-    
-            setTimeout(updateCounter, delay)
-       }
-       updateCounter()
-        const tl = gsap.timeline()
-
-          
-        
-            tl.to(lineRef.current, {y: -300, ease: "power4.in", duration: 0.5 })
-            .to(loadRef.current, {height: "0vh", ease: "power4.in", duration: 0.5})
-         
-    },[])
-
-  
+    // Start the counter and progress bar animation
+    updateCounter();
+  }, []);
 
   return (
-
-     <div ref={loadRef} className='fixed bg-[#000] top-0 left-0 right-0 bottom-0 w-screen h-screen overflow-hidden z-[999]'>
-          <div className='loader'>
-        <h1 ref={counterRef} className="counter">0</h1>
-        <div className="circles">
-          <div className="circle circle-outer"></div>
-          <div className="circle circle-inner"></div>
-          <div className="circle-inner-rotator"></div>
-          <div className="block"></div>
-        </div>
-        </div>
-      <div ref={lineRef} className='w-[0.5px] h-[500px] bg-white absolute top-[90%] left-[50%] translate-x-[-50%] translate-y-[-5%]'></div>
+    <div
+      ref={loadRef}
+      className="fixed bg-[#000] top-0 left-0 right-0 bottom-0 w-screen h-screen overflow-hidden z-[999] flex flex-col justify-end pb-20 px-6 md:px-[32px] gap-[11px]"
+    >
+      <span
+        className="text-white text-[48px] tracking-[-0.1em] leading-[59.42px] ml-3 font-MetroSans"
+        ref={counterRef}
+      >
+        0%
+      </span>
+      <div className="relative w-full h-[10px] py-2 border-[#DFE0D8] border-[0.8px] rounded-[3px] overflow-hidden">
+        <div
+          className="h-[6px] bg-[#DFE0D8] absolute top-[0.30rem]"
+          ref={progressRef}
+        ></div>
+      </div>
     </div>
-  
-  )
-}
+  );
+};
 
-export default Loader
+export default Loader;
