@@ -1,6 +1,5 @@
 
 
-import { StaticImageData } from 'next/image';
 import { create } from 'zustand';
 
 
@@ -8,13 +7,12 @@ interface ModalState {
   isOpen: boolean;
   selectedProject: null | {
     id: number;
-     cover: StaticImageData;
+    cover: string;
     name: string;
     desc: string;
     url: string;
     video: string;
     date: string;
-    isIncomplete: boolean;
   };
   openModal: (project: ModalState['selectedProject']) => void;
   closeModal: () => void;

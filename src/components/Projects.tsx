@@ -1,148 +1,81 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import arrow from "@/assets/icons/arrow.png"
 import video from "@/assets/icons/video.png"
 import Image from 'next/image'
-import img1 from "@/assets/image/dressthearthcover.png"
-import img2 from "@/assets/image/euterpecover.png"
-import img3 from "@/assets/image/thenotescover.png"
-import img4 from "@/assets/image/ymkcover.png"
-
 import { useModalStore } from '@/store/modal.store'
 
-import { StaticImageData } from 'next/image';
-import { Warning } from './Warning'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-
-
-interface Project {
-    id: number;
-    cover: StaticImageData;
-    name: string;
-    desc: string;
-    url: string;
-    video: string;
-    date: string;
-    isIncomplete: boolean;
-}
-
-export const projects: Project[] = [
+export const projects = [
     {
         id: 1,
-        cover: img2,
+        cover: "",
         name: "Euterpe",
         desc: "A Web3 music streaming platform that rewards listeners for discovering new artists while ensuring fair royalties and global reach for creators",
-        url: "https://app.euterpe.fm/",
-        video: "/videos/euterpe.mp4",
-        date: "Present",
-        isIncomplete: true
+        url: "",
+        video: "",
+        date: "2024"
     },
     {
         id: 2,
-        cover: img4,
-        name: "Ymkupnext",
-        desc: "A sleek portfolio website built for a creative director and videographer to showcase their work. Features a visually rich design, smooth animations, and a structured portfolio layout.",
-        url: "https://ymkupnext.onrender.com/",
-        video: "/videos/ymkupnext.mp4",
-        date: "2024",
-        isIncomplete: false
+        cover: "",
+        name: "Euterpe",
+        desc: "A Web3 music streaming platform that rewards listeners for discovering new artists while ensuring fair royalties and global reach for creators",
+        url: "",
+        video: "",
+        date: "2024"
     },
     {
         id: 3,
-        cover: img3,
-        name: "The Notes",
-        desc: "An e-commerce platform designed for an aromatherapy brand, offering a seamless shopping experience. Built with a user-friendly interface, secure checkout, and an elegant product display.",
-        url: "https://the-notes-ivory.vercel.app/",
-        video: "/videos/thenotes.mp4",
-        date: "Present",
-        isIncomplete: true
+        cover: "",
+        name: "Euterpe",
+        desc: "A Web3 music streaming platform that rewards listeners for discovering new artists while ensuring fair royalties and global reach for creators",
+        url: "",
+        video: "",
+        date: "2024"
     },
     {
         id: 4,
-        cover: img1,
-        name: "Dress The Earth",
-        desc: "A collaborative freelance project focused on sustainability and eco-friendly products. Developed with a clean aesthetic, engaging content, and intuitive navigation for a smooth user experience.",
-        url: "https://dresstheearth.netlify.app/",
-        video: "/videos/dressearth.mp4",
-        date: "2024",
-        isIncomplete: false
+        cover: "",
+        name: "Euterpe",
+        desc: "A Web3 music streaming platform that rewards listeners for discovering new artists while ensuring fair royalties and global reach for creators",
+        url: "",
+        video: "",
+        date: "2024"
     },
 ]
 
 const Projects = () => {    
     const {openModal} = useModalStore();
-    const [showWarning, setShowWarning] = useState(false);
-  const [selectedUrl, setSelectedUrl] = useState("");
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Create the fade-in animation when the About section comes into view
-    gsap.fromTo(
-      ".project-section", // Targeting the section
-      { opacity: 0 }, // Starting state (completely transparent)
-      {
-        opacity: 1, // Ending state (fully visible)
-        duration: 1, // Duration of the fade-in
-        ease: "power3.out", // Ease for smooth transition
-        scrollTrigger: {
-          trigger: ".project-section", // When this section comes into view
-          start: "top 80%", // Start the animation when the top of the section is 80% from the top of the viewport
-          end: "top 30%", // End the animation when the top of the section reaches 30% of the viewport height
-          toggleActions: "play none none reverse", // Control animation states when scrolling
-        }
-      }
-    );
-  }, []);
-
-    const handleVisitClick = (proj: Project) => {
-        if (proj.isIncomplete) {
-          setSelectedUrl(proj.url);
-          setShowWarning(true);
-        } else {
-          window.open(proj.url, "_blank");
-        }
-      };
-
-      const confirmVisit = () => {
-        window.open(selectedUrl, "_blank");
-        setShowWarning(false);
-      };
 
   return (
-    <div className='w-full h-full md:px-[32px] px-6 my-10 project-section'>
+    <div className='w-full h-full md:px-[32px] px-6 my-10'>
       <div className='flex flex-col gap-[80px] py-20 '>
       <h1 className='font-MetroSans font-bold text-[64px] leading-[76.81px] tracking-[-0.02em]'>Projects</h1>
-      <div className='w-full grid md:grid-cols-2 grid-cols-1 md:gap-4 gap-6'>
+      <div className='w-full grid md:grid-cols-2 grid-cols-1 gap-y-4'>
         {
             projects.map((proj,index) => {
                 const formattedIndex = String(index + 1).padStart(2, '0');
                 return(
                 <div key={index} className='flex flex-col gap-5'>
-                    <div className=' md:h-[680px] w-[100%] h-[380px] bg-[#1E1E1E]' onClick={() => openModal(proj)}>
-                        <Image src={proj.cover} alt='' className='w-full h-full object-cover'/>
-                    </div>
-                    <div className='flex flex-col gap-3 md:w-full w-[100%]'>
+                    <div className='md:w-[680px] md:h-[680px] w-[500px] h-[500px] bg-[#1E1E1E]' onClick={() => openModal(proj)}></div>
+                    <div className='flex flex-col gap-3'>
                         <div className='flex items-center gap-4'>
                             <p className='font-MetroSans font-medium text-[24px] leading-[28.8px] tracking-[-0.02em] text-[#DFE0D8]'>{formattedIndex}</p>
                             <div className='relative'>
                             <p className='font-MetroSans font-bold text-[24px] leading-[28.8px] tracking-[-0.02em]'>{proj.name}</p>
-                            <p className='border-[#DFE0D8] w-[42px] h-[20px] rounded-[4px] border text-[#DFE0D8] text-[12px] font-bold font-MetroSans tracking-[-0.02em] absolute top-[-5px] right-[-50px]  flex items-center justify-center'>{proj.date}</p>
+                            <p className='border-[#DFE0D8] w-[39px] h-[20px] rounded-[4px] border text-[#DFE0D8] text-[12px] font-bold font-MetroSans tracking-[-0.02em] absolute top-[-5px] right-[-45px] flex items-center justify-center'>{proj.date}</p>
                             </div>
                         </div>
                         <div>
-                            <p className='w-full md:w-[545px] font-MetroSans font-light text-[16px] text-[#808080] leading-[19.2px] tracking-[-0.02em]'>{proj.desc}</p>
+                            <p className='w-[545px] font-MetroSans font-light text-[16px] text-[#808080] leading-[19.2px] tracking-[-0.02em]'>{proj.desc}</p>
                         </div>
                     </div>
                     <div className='flex items-center gap-4'>
-                        <div 
-                        onClick={() => handleVisitClick(proj)}
-                        className='   flex items-center gap-4 cursor-pointer'>
+                        <div className='   flex items-center gap-4'>
                             <Image src={arrow} alt='' width={16} height={16} quality={100}/>
                             <p className='underline text-[16px] font-medium leading-[19.2px] tracking-[-0.02em] text-[#DFE0D8] '>visit site</p>
                         </div>
-                        <div className='   flex items-center gap-4 cursor-pointer' onClick={() => openModal(proj)}>
+                        <div className='   flex items-center gap-4'>
                             <Image src={video} alt='' width={16} height={16} quality={100}/>
                             <p className='underline text-[16px] font-medium leading-[19.2px] tracking-[-0.02em] text-[#DFE0D8] '>watch video</p>
                         </div>
@@ -152,12 +85,6 @@ const Projects = () => {
         }
       </div>
       </div>
-      {/* Warning Modal */}
-      <Warning
-        isOpen={showWarning}
-        onClose={() => setShowWarning(false)}
-        onConfirm={confirmVisit}
-      />
     </div>
   )
 }
