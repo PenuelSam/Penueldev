@@ -27,7 +27,7 @@ export default function GetInTouch() {
   return (
     <>
     <div className='h-[480px] w-full bg-path md:px-[32px] px-6 flex flex-col md:flex-row md:items-end  py-20 justify-between ' >
-      <h1 className='font-MetroSans font-bold text-[90px] md:text-[120px] md:leading-[120px] leading-[90px] tracking-[-0.06em] text-[#DFE0D8]'>
+      <h1 className='font-MetroSans font-bold text-[90px] md:text-[120px] md:leading-[120px] leading-[90px] tracking-[-0.06em] text-[#DFE0D8] md:w-[905px] md:h-[240px]'>
         Let’s build together, Get in touch
       </h1>
       <a href="mailto:penuelsamuel54@gmail.com" className='flex items-center md:gap-4 gap-2 cursor-pointer'>
