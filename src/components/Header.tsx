@@ -17,7 +17,7 @@ const Header = () => {
         <a 
         href='/myResume.pdf'
         download="myResume.pdf"
-        className='font-medium font-MetroSans text-[16px] leading-[19.2px] tracking-[-2%] text-[#DFE0D8] cursor-pointer'>Download Cv</a>
+        className='font-medium font-MetroSans text-[16px] leading-[19.2px] tracking-[-2%] text-[#DFE0D8] cursor-pointer'>Download CV</a>
       </div>
     </div>
   )

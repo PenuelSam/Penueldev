@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import arrow from "@/assets/icons/arrow.png"
 import video from "@/assets/icons/video.png"
 import Image from 'next/image'
@@ -15,6 +15,8 @@ import img4 from "@/assets/image/ymkcover.png"
 
 import { StaticImageData } from 'next/image';
 import WarningModal from './Warning'
+import gsap from 'gsap'
+import {ScrollTrigger} from 'gsap/dist/ScrollTrigger'
 
 export interface Project {
     id: number;
@@ -76,6 +78,27 @@ const Projects = () => {
     const [showWarning, setShowWarning] = useState(false);
   const [selectedUrl, setSelectedUrl] = useState<string | null>(null);
 
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.fromTo(
+      ".project-section", 
+      { opacity: 0 }, 
+      {
+        opacity: 1, 
+        duration: 1, 
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".project-section", 
+          start: "top 80%", 
+          end: "top 30%", 
+          toggleActions: "play none none reverse", 
+        }
+      }
+    );
+  }, []);
+
+
   const handleVisitClick = (proj: { url: string; isIncomplete: boolean }) => {
     if (proj.isIncomplete) {
       setSelectedUrl(proj.url);
@@ -93,7 +116,7 @@ const Projects = () => {
   };
 
   return (
-    <div className='w-full h-full md:px-[32px] px-6 my-10'>
+    <div className='w-full h-full md:px-[32px] px-6 my-10 project-section'>
       <div className='flex flex-col gap-[80px] py-20 '>
       <h1 className='font-MetroSans font-bold text-[64px] leading-[76.81px] tracking-[-0.02em]'>Projects</h1>
       <div className='w-full grid md:grid-cols-2 grid-cols-1 gap-4 gap-y-10'>
