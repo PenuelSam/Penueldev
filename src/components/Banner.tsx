@@ -30,7 +30,7 @@ const Banner = ({ loadingComplete }: { loadingComplete: boolean }) => {
           ref={paragraphRef}
           className="font-medium font-MetroSans md:text-[24px] text-[18px] leading-[20px] md:leading-[28.8px] tracking-[-0.02em] text-[#DFE0D8] md:w-[775px] md:mt-[40px] mt-[20px]"
         >
-          I’m Penuel, a passionate front-end developer with a flair for creating intuitive and visually stunning user interfaces. With a strong foundation in HTML, CSS, and JavaScript, I specialize in building responsive, accessible, and engaging web applications. Experienced in modern frameworks like React and Vue.js, I enjoy transforming ideas into seamless digital experiences.
+          I’m Penuel, a passionate front-end developer with a flair for creating intuitive and visually stunning user interfaces. With a strong foundation in HTML, CSS, and JavaScript, I specialize in building responsive, accessible, and engaging web applications. Experienced in modern frameworks like React and Nextjs, I enjoy transforming ideas into seamless digital experiences.
         </p>
       </div>
     </div>

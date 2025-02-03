@@ -50,7 +50,7 @@ const About = () => {
         </div>
         <div className='md:w-[775px]'>
           <p className='text-[#DFE0D8] text-[24px] font-MetroSans font-light leading-[28.8px] tracking-[-0.02em]'>
-            I’m Penuel, a passionate front-end developer with a flair for creating intuitive and visually stunning user interfaces. With a strong foundation in HTML, CSS, and JavaScript, I specialize in building responsive, accessible, and engaging web applications. Experienced in modern frameworks like React and Vue.js, I enjoy transforming ideas into seamless digital experiences.
+            I’m Penuel, a passionate front-end developer with a flair for creating intuitive and visually stunning user interfaces. With a strong foundation in HTML, CSS, and JavaScript, I specialize in building responsive, accessible, and engaging web applications. Experienced in modern frameworks like React and Nextjs, I enjoy transforming ideas into seamless digital experiences.
           </p>
         </div>
       </div>
