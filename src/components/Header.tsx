@@ -30,7 +30,7 @@ const Header = () => {
         {/* Download CV Button */}
         <a 
           href='/myResume.pdf'
-          download="myResume.pdf"
+          download="Resume.pdf"
           onClick={handleDownload}
           className='font-medium font-MetroSans text-[16px] leading-[19.2px] tracking-[-2%] text-[#DFE0D8] cursor-pointer flex items-center gap-2'
         >
