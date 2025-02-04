@@ -52,7 +52,7 @@ export default function GetInTouch() {
     <div className='w-full h-[67px] md:px-[32px] px-6 flex items-center justify-between'>
         <p className='font-bold font-MetroSans text-[14px] leading-[16.8px] tracking-[-0.02em] text-[#7B7C79]'>&copy; Penuel 2025</p>
 
-        <Link href="/">
+        <Link href="https://bunmi.framer.website/" target='_blank'>
             <p className='font-bold font-MetroSans text-[14px] leading-[16.8px] tracking-[-0.02em] underline text-[#DFE0D8]'>Designed by Bunmi</p>
         </Link>
     </div>
